@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import Task from './Task';
 import './TaskList.css';
 
-const TaskList = ({ tasks }) => {
+const TaskList = (props) => {
   const getTaskListJSX = (tasks) => {
-    return tasks.map((task) => {
+    return props.map((task) => {
       return (
         <Task
-          key={task.id}
-          id={task.id}
-          title={task.title}
-          isComplete={task.isComplete}
+          key={props.tasks.id}
+          id={props.tasks.id}
+          title={props.tasks.title}
+          isComplete={props.tasks.isComplete}
         />
       );
     });
