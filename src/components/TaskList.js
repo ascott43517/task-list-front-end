@@ -4,19 +4,19 @@ import Task from './Task';
 import './TaskList.css';
 
 const TaskList = (props) => {
-  const getTaskListJSX = (tasks) => {
-    return props.map((task) => {
+  const getTaskListJSX = () => {
+    return props.tasks.map((task) => {
       return (
         <Task
-          key={props.tasks.id}
-          id={props.tasks.id}
-          title={props.tasks.title}
-          isComplete={props.tasks.isComplete}
+          key={task.id}
+          id={task.id}
+          title={task.title}
+          isComplete={task.isComplete}
         />
       );
     });
   };
-  return <ul className="tasks__list no-bullet">{getTaskListJSX(tasks)}</ul>;
+  return <ul className="tasks__list no-bullet">{getTaskListJSX()}</ul>;
 };
 
 TaskList.propTypes = {
