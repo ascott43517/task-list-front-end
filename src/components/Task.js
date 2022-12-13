@@ -20,6 +20,7 @@ const Task = ({ id, title, isComplete }) => {
   );
 };
 
+
 Task.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
@@ -27,3 +28,6 @@ Task.propTypes = {
 };
 
 export default Task;
+
+
+// testing 123
