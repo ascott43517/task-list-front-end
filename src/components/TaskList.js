@@ -5,13 +5,14 @@ import './TaskList.css';
 
 const TaskList = (props) => {
   const getTaskListJSX = () => {
-    return props.tasks.map((task) => {
+     return props.tasks.map((task) => {
       return (
         <Task
           key={task.id}
           id={task.id}
           title={task.title}
           isComplete={task.isComplete}
+          onComplete={props.onCompleteTask}
         />
       );
     });
@@ -25,8 +26,11 @@ TaskList.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       isComplete: PropTypes.bool.isRequired,
-    })
-  ).isRequired,
+    })),
+  
+ onCompleteTask: PropTypes.func.isRequired,
 };
+
+
 
 export default TaskList;
