@@ -21,11 +21,11 @@ const TASKS = [
 ];
 
 const App = () => {
-  const [complete, setComplete] = useState(TASKS);
+  const [taskData, setTaskData] = useState(TASKS);
 
   
   const CompleteTask = CompletedTask => { 
-      const tasks = TASKS.map(task => {
+      const tasks = taskData.map(task => {
         if (task.id === CompletedTask.id) {
           return CompletedTask;
         } else {
@@ -34,7 +34,7 @@ const App = () => {
       });
 
   
-    setComplete(tasks);
+    setTaskData(tasks);
   };
   return (
     <div className="App">
@@ -42,7 +42,7 @@ const App = () => {
         <h1>Ada&apos;s Task List</h1>
       </header>
       <main>
-        <div><TaskList tasks={complete}
+        <div><TaskList tasks={taskData}
         onCompleteTask = {CompleteTask} />
         </div>
         
