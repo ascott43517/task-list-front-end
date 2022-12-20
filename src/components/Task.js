@@ -9,23 +9,25 @@ const Task = (props) => {
 
   const OnCompleteTask = () => {
     const CompletedTask = {
-        id: props.id,
-        title: props.title,
-        isComplete: !props.isComplete
-
+      id: props.id,
+      title: props.title,
+      isComplete: !props.isComplete,
     };
 
     // Invoke the function passed in through the prop named "onUpdate"
     // This function is referenced by the name "updateStudentData" in App
-   props.onComplete(CompletedTask);
-  
-};
-const completeValue = props.isComplete ? 'tasks__item__toggle--completed':'';
+    props.onComplete(CompletedTask);
+  };
+  const completeValue = props.isComplete
+    ? 'tasks__item__toggle--completed'
+    : '';
 
   return (
     <li className="tasks__item">
-      <button className={`tasks__item__toggle ${completeValue}`}
-        onClick= {OnCompleteTask}>
+      <button
+        className={`tasks__item__toggle ${completeValue}`}
+        onClick={OnCompleteTask}
+      >
         {props.title}
       </button>
       <button className="tasks__item__remove button">x</button>
@@ -33,16 +35,14 @@ const completeValue = props.isComplete ? 'tasks__item__toggle--completed':'';
   );
 };
 
-
 Task.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   isComplete: PropTypes.bool.isRequired,
-  onComplete: PropTypes.func.isRequired
+  onComplete: PropTypes.func.isRequired,
 };
 
 export default Task;
-
 
 // testing 123
 // onClick={() => props.OnCompleteTask(!complete)}
